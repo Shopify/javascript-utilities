@@ -10,21 +10,24 @@
     "prebuild": "yarn run clean",
     "build": "tsc",
     "lint": "tslint -c ./config/tslint/full.json './src/**/*.ts' --project tsconfig.json --type-check",
-    "check": "npm-run-all lint build",
-    "prepublish": "yarn run build"
+    "ts": "tsc --noEmit",
+    "test": "echo 'no tests yet!'",
+    "check": "npm-run-all lint ts",
+    "prepublish": "in-publish && yarn run build || :"
   },
   "bugs": {
     "url": "https://github.com/Shopify/javascript-utilities/issues"
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/continuation-local-storage": "^3.2.0",
-    "@types/react": "^15.0.20",
+    "in-publish": "^2.0.0",
     "npm-run-all": "^4.0.2",
     "rimraf": "^2.6.1",
     "tslint": "^4.5.1",
     "tslint-config-shopify": "^1.5.0",
     "typescript": "^2.2.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/react": "^15.0.21"
+  }
 }

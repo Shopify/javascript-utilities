@@ -10,7 +10,8 @@
     "prebuild": "rimraf lib",
     "build": "tsc",
     "lint": "tslint -c ./config/tslint/full.json './src/**/*.ts' --project tsconfig.json --type-check",
-    "check": "yarn lint"
+    "check": "yarn lint",
+    "prepublish": "yarn run build"
   },
   "bugs": {
     "url": "https://github.com/Shopify/javascript-utilities/issues"

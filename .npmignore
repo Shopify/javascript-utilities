@@ -3,3 +3,4 @@ config/tslint/
 config/typescript/
 tslint.json
 tsconfig.json
+.npmignore

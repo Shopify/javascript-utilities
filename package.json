@@ -2,7 +2,7 @@
   "name": "@shopify/javascript-utilities",
   "version": "0.0.1",
   "main": "./lib/index.js",
-  "description": "Shopify's javascript utilites.",
+  "description": "Shopify's JavaScript utilites.",
   "homepage": "https://github.com/Shopify/javascript-utilities",
   "repository": "https://github.com/Shopify/javascript-utilities",
   "author": "Shopify <dev@shopify.com>",

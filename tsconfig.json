@@ -17,5 +17,5 @@
   ],
   "exclude": [
     "./node_modules"
-    ]
+  ]
 }

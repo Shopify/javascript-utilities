@@ -1,4 +1,4 @@
-interface RectConfig {
+export interface RectConfig {
   top?: number,
   left?: number,
   width?: number,

@@ -54,7 +54,7 @@ export function abbreviationForWeekday(weekday: Weekdays) {
   return Weekdays[weekday].substring(0, 2);
 }
 
-type Week = (Date | null)[];
+export type Week = (Date | null)[];
 
 const WEEK_LENGTH = 7;
 

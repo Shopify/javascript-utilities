@@ -6,7 +6,7 @@
   "repository": "https://github.com/Shopify/javascript-utilities",
   "author": "Shopify <dev@shopify.com>",
   "scripts": {
-    "prebuild": "rimraf lib",
+    "prebuild": "rimraf '*.{js,d.ts}'",
     "build": "tsc",
     "lint": "tslint -c ./config/tslint/full.json './src/**/*.ts' --project tsconfig.json --type-check",
     "check": "npm-run-all lint build",

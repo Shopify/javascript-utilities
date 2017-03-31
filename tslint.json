@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "./config/tslint/full.json",
+    "tslint-config-shopify/untyped"
+  ]
+}

@@ -1,8 +1,8 @@
-import * as url from 'url';
+import {parse} from 'url';
 
 export function getPath(urlParam: string): string {
   if (typeof window === 'undefined') {
-    const path = url.parse(urlParam).pathname;
+    const path = parse(urlParam).pathname;
     return path ? path : '/';
   }
   return browserGetPath(urlParam);

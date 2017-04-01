@@ -1,6 +1,8 @@
+.vscode/
+node_modules/
+config/
 circle.yml
-config/tslint/
-config/typescript/
 tslint.json
 tsconfig.json
+yarn.lock
 .npmignore

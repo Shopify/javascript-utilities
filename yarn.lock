@@ -2,19 +2,9 @@
 # yarn lockfile v1
 
 
-"@types/continuation-local-storage@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@types/continuation-local-storage/-/continuation-local-storage-3.2.0.tgz#12879bdf29b42ef230863320772f1c23d6cfff4e"
-  dependencies:
-    "@types/node" "*"
-
-"@types/node@*":
-  version "7.0.12"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.12.tgz#ae5f67a19c15f752148004db07cbbb372e69efc9"
-
-"@types/react@^15.0.20":
-  version "15.0.20"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.20.tgz#3d4a05ed04a8b1847ac6c8fa6093591d3910fba5"
+"@types/react@^15.0.21":
+  version "15.0.21"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.21.tgz#29d849427237c1463abfb7b370755ee3e5b5b375"
 
 ansi-align@^1.1.0:
   version "1.1.0"
@@ -316,6 +306,10 @@ hosted-git-info@^2.1.4:
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
+
+in-publish@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/in-publish/-/in-publish-2.0.0.tgz#e20ff5e3a2afc2690320b6dc552682a9c7fadf51"
 
 inflight@^1.0.4:
   version "1.0.6"

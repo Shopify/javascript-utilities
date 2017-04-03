@@ -11,7 +11,7 @@
     "build": "tsc",
     "lint": "tslint -c ./config/tslint/full.json './src/**/*.ts' --project tsconfig.json --type-check",
     "ts": "tsc --noEmit",
-    "test": "echo 'no tests yet!'",
+    "test": "yarn run check",
     "check": "npm-run-all lint ts",
     "prepublish": "in-publish && yarn run build || :"
   },

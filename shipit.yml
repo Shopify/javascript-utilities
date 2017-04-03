@@ -1,0 +1,7 @@
+dependencies:
+  override:
+    - yarn install --no-progress
+
+deploy:
+  override:
+    - npm publish --access public

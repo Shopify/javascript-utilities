@@ -9,6 +9,7 @@
     "strictNullChecks": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": false,
     "noEmitOnError": true,
     "moduleResolution": "node"

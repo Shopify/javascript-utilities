@@ -46,8 +46,8 @@ export function getRectForNode(node: Element | React.ReactNode | Window): Rect {
   const rect = node.getBoundingClientRect();
 
   return new Rect({
-    top: rect.top + window.scrollY,
-    left: rect.left + window.scrollX,
+    top: rect.top,
+    left: rect.left,
     width: rect.width,
     height: rect.height,
   });

@@ -37,7 +37,7 @@ export function closest(node: HTMLElement, selector: string) {
 
   const matches = document.querySelectorAll(selector);
   let i;
-  let el: Optional<HTMLElement> = node;
+  let el: HTMLElement | null | undefined = node;
   do {
     el = el.parentElement;
     i = matches.length;

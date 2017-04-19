@@ -1,4 +1,4 @@
-import {matches} from '@shopify/javascript-utilities/dom';
+import {matches} from './dom';
 
 export const FOCUSABLE_SELECTOR = 'a,frame,iframe,input:not([type=hidden]),select,textarea,button,*[tabindex]';
 

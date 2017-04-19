@@ -1,10 +1,10 @@
 import {supportsEventListenerPassiveOption, supportsEventListenerOnceOption} from './feature-detect';
 
-export interface EventListenerArgs {
+interface EventListenerArgs {
   capture?: boolean,
 }
 
-export interface AddEventListenerOptions extends EventListenerArgs {
+interface AddEventListenerOptions extends EventListenerArgs {
   passive?: boolean,
   once?: boolean,
 }

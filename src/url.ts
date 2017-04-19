@@ -1,8 +1,9 @@
-import {parse} from 'url';
+import url from 'url';
 
 export function getPath(urlParam: string): string {
-  if (typeof window === 'undefined') {
-    const path = parse(urlParam).pathname;
+  // No window, or we are running in JSDOM for tests
+  if (typeof window === 'undefined' || window.navigator.userAgent.includes('Node.js')) {
+    const path = url.parse(urlParam).pathname;
     return path ? path : '/';
   }
   return browserGetPath(urlParam);

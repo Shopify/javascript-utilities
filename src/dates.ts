@@ -54,7 +54,7 @@ export function abbreviationForWeekday(weekday: Weekdays) {
   return Weekdays[weekday].substring(0, 2);
 }
 
-export type Week = (Date | null)[];
+type Week = (Date | null)[];
 
 const WEEK_LENGTH = 7;
 
@@ -110,7 +110,13 @@ export function isSameDay(day1: Date, day2: Date) {
   );
 }
 
-export function getNewRange({start, end}: Range, selected: Date): Range {
+export function getNewRange(range: Range | undefined, selected: Date): Range {
+  if (range == null) {
+    return {start: selected, end: selected};
+  }
+
+  const {start, end} = range;
+
   if (end && start !== end) {
     return {start: selected, end: selected};
   }

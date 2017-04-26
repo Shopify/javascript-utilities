@@ -1,4 +1,4 @@
-import url from 'url';
+import url = require('url');
 
 export function getPath(urlParam: string): string {
   // No window, or we are running in JSDOM for tests

@@ -1,4 +1,5 @@
-import {parse} from 'url';
+// tslint:disable-next-line no-require-imports
+const {parse} = require('url');
 
 export function getPath(urlParam: string): string {
   // No window, or we are running in JSDOM for tests

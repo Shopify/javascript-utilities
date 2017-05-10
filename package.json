@@ -12,7 +12,7 @@
     "lint": "tslint -c ./config/tslint/full.json './src/**/*.ts' --project tsconfig.json --type-check",
     "ts": "tsc --noEmit",
     "test": "jest --config ./config/jest/config.json",
-    "check": "npm-run-all lint ts",
+    "check": "npm-run-all lint ts test",
     "prepublish": "in-publish && yarn run build || :"
   },
   "bugs": {

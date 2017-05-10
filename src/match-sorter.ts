@@ -98,8 +98,8 @@ function sortRankedItems(a: Ranking, b: Ranking) {
  * @param {Object} options
  * @return {Array} - the new sorted array
  */
-export default function matchSorter(items: string[], value: string, options?: Options) {
-  const {threshold = rankings.CONTAINS, ranking = defaultRanking} = {...options};
+export default function matchSorter(items: string[], value: string, options?) {
+  const {threshold = rankings.CONTAINS, ranking = defaultRanking}: Options = {...options};
   const matchedItems = items.reduce(reduceItemsToRanked, []);
 
   function reduceItemsToRanked(matches: Item[], item: string, index: number): Item[] {

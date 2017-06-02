@@ -1,6 +1,6 @@
 import loadashMemoize from 'lodash/memoize';
 
-export function memoize(resolver?: Function) {
+export default function memoize(resolver?: Function) {
   return function(target: any, key: string, descriptor: PropertyDescriptor) {
     const functionToMemoize = descriptor.value;
 

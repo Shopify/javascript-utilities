@@ -1,6 +1,6 @@
 import lodashDebounce, {DebounceSettings} from 'lodash/debounce';
 
-export function debounce(wait = 500, options?: DebounceSettings) {
+export default function debounce(wait = 500, options?: DebounceSettings) {
   return function(target: any, key: string, descriptor: PropertyDescriptor) {
     const functionToDebounce = descriptor.value;
 

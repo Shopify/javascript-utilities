@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/lodash": "^4.14.65",
+    "@types/lodash-es": "^4.14.5",
     "in-publish": "^2.0.0",
     "npm-run-all": "^4.0.2",
     "rimraf": "^2.6.1",
@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@types/react": "^15.0.21",
-    "lodash": "^4.17.4"
+    "lodash-es": "^4.17.4"
   }
 }

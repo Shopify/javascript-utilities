@@ -1,9 +1,9 @@
-import debounce from 'lodash/debounce';
+import debounce from 'lodash-es/debounce';
 
 export interface DebounceSettings {
-    leading?: boolean,
-    maxWait?: number,
-    trailing?: boolean,
+  leading?: boolean,
+  maxWait?: number,
+  trailing?: boolean,
 }
 
 export default function debounceDecorator(wait = 500, options?: DebounceSettings) {

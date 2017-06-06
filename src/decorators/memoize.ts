@@ -1,4 +1,4 @@
-import memoize from 'lodash/memoize';
+import memoize from 'lodash-es/memoize';
 
 export default function memoizeDecorator(resolver?: Function) {
   return function(target: any, key: string, descriptor: PropertyDescriptor) {

@@ -1,4 +1,10 @@
-import lodashDebounce, {DebounceSettings} from 'lodash/debounce';
+import lodashDebounce from 'lodash/debounce';
+
+export interface DebounceSettings {
+    leading?: boolean,
+    maxWait?: number,
+    trailing?: boolean,
+}
 
 export default function debounce(wait = 500, options?: DebounceSettings) {
   return function(target: any, key: string, descriptor: PropertyDescriptor) {

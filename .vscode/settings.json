@@ -5,12 +5,12 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/.DS_Store": true,
-    "**/node_modules": false,
+    "**/node_modules": true,
     "*.d.ts": true,
     "*.js": true
   },
   "search.exclude": {
-    "**/node_modules": false,
+    "**/node_modules": true,
     "**/bower_components": true,
     "*.d.ts": true,
     "*.js": true

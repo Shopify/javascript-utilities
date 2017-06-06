@@ -1,4 +1,4 @@
-import loadashMemoize from 'lodash/memoize';
+import lodashMemoize from 'lodash-es/memoize';
 
 export default function memoize(resolver?: Function) {
   return function(target: any, key: string, descriptor: PropertyDescriptor) {
@@ -15,7 +15,7 @@ export default function memoize(resolver?: Function) {
           return functionToMemoize;
         }
 
-        const boundFunction = loadashMemoize(functionToMemoize, resolver);
+        const boundFunction = lodashMemoize(functionToMemoize, resolver);
         definingProperty = true;
 
         Object.defineProperty(this, key, {

@@ -1,4 +1,4 @@
-import lodashDebounce from 'lodash/debounce';
+import debounce from 'lodash/debounce';
 
 export interface DebounceSettings {
     leading?: boolean,
@@ -6,7 +6,7 @@ export interface DebounceSettings {
     trailing?: boolean,
 }
 
-export default function debounce(wait = 500, options?: DebounceSettings) {
+export default function debounceDecorator(wait = 500, options?: DebounceSettings) {
   return function(target: any, key: string, descriptor: PropertyDescriptor) {
     const functionToDebounce = descriptor.value;
 
@@ -21,7 +21,7 @@ export default function debounce(wait = 500, options?: DebounceSettings) {
           return functionToDebounce;
         }
 
-        const boundFunction = lodashDebounce(functionToDebounce, wait, options);
+        const boundFunction = debounce(functionToDebounce, wait, options);
         definingProperty = true;
 
         Object.defineProperty(this, key, {

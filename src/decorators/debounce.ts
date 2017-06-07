@@ -1,4 +1,4 @@
-import lodashDebounce from 'lodash/debounce';
+import lodashDebounce = require('lodash/debounce');
 import {DebounceSettings} from 'lodash';
 
 export default function debounce(wait = 500, options?: DebounceSettings) {

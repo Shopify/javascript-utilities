@@ -1,4 +1,4 @@
-import lodashMemoize from 'lodash/memoize';
+import lodashMemoize = require('lodash/memoize');
 
 export default function memoize(resolver?: Function) {
   return function(target: any, key: string, descriptor: PropertyDescriptor) {

@@ -1,5 +1,7 @@
 export default function autobind(target: any, key: string, descriptor: PropertyDescriptor) {
-  const functionToBind = descriptor.value;
+  const functionToBind = descriptor.get
+    ? descriptor.get()
+    : descriptor.value;
 
   // prevents IE11 recursion error
   let definingProperty = false;

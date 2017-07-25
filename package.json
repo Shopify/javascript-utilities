@@ -20,6 +20,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/lodash-decorators": "^4.0.0",
     "in-publish": "^2.0.0",
     "npm-run-all": "^4.0.2",
     "rimraf": "^2.6.1",
@@ -30,6 +31,7 @@
   "dependencies": {
     "@types/lodash": "^4.14.65",
     "@types/react": "^15.0.21",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "lodash-decorators": "^4.3.5"
   }
 }

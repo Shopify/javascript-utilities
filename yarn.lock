@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@types/lodash-decorators@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/lodash-decorators/-/lodash-decorators-4.0.0.tgz#c09e271f1c4d723d59d1ab2df7bc361fb960341c"
+  dependencies:
+    lodash-decorators "*"
+
 "@types/lodash@^4.14.65":
   version "4.14.65"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.65.tgz#a0f78d71ffcd3c02628d5f616410c98c424326d5"
@@ -419,6 +425,12 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
+lodash-decorators@*, lodash-decorators@^4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/lodash-decorators/-/lodash-decorators-4.3.5.tgz#72f81112a61d7e053acb76915caea8b459d39b6d"
+  dependencies:
+    tslib "^1.6.1"
+
 lodash@^4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
@@ -729,6 +741,10 @@ through@2, through@~2.3, through@~2.3.1:
 timed-out@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
+
+tslib@^1.6.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.7.1.tgz#bc8004164691923a79fe8378bbeb3da2017538ec"
 
 tslint-config-shopify@^1.5.0:
   version "1.5.0"

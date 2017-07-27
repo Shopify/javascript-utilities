@@ -43,7 +43,7 @@
 
 ## Code Examples
 
-  Check out our [Examples directory](https://github.com/Shopify/javascript-utilities/tree/master/src) for code examples showing how to use this repo.
+  Check out our [Examples directory](https://github.com/Shopify/javascript-utilities/tree/master/examples) for code examples showing how to use this repo.
 
 ## Installation
 

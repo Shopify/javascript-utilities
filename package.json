@@ -1,7 +1,7 @@
 {
   "name": "@shopify/javascript-utilities",
   "version": "1.1.6",
-  "description": "Shopify's JavaScript utilites.",
+  "description": "A set of utilities for JavaScript and TypeScript projects at Shopify.",
   "homepage": "https://github.com/Shopify/javascript-utilities",
   "repository": "https://github.com/Shopify/javascript-utilities",
   "author": "Shopify <dev@shopify.com>",

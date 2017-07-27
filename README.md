@@ -38,7 +38,7 @@
 ## Table of Contents
 
   - [Installation](#installation)
-  - [API](#api)
+  - [API](#api-reference)
   - [License](#license)
 
 ## Code Examples

@@ -38,3 +38,5 @@ If your change affects how people use the project (i.e. adding or
 changing arguments to a function, adding a new function, changing the
 return value, etc), please ensure the documentation is also updated to
 reflect this. Documentation is in the `README.md` if further documentation is needed please communicate via Github Issues.
+
+**IMPORTANT** Also, please make sure you update the changelog, which can be found in `CHANGELOG.md`.

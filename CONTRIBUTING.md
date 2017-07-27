@@ -39,4 +39,8 @@ changing arguments to a function, adding a new function, changing the
 return value, etc), please ensure the documentation is also updated to
 reflect this. Documentation is in the `README.md` if further documentation is needed please communicate via Github Issues.
 
-**IMPORTANT** Also, please make sure you update the changelog, which can be found in `CHANGELOG.md`.
+## Changelog
+Please make sure you update `CHANGELOG.md` with a high-level description of any changes you make. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
+
+## Releasing a new version
+The `yarn version` command can be used to create a new version. This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).

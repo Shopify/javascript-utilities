@@ -21,5 +21,5 @@ import {autobind} from '@shopify/javascript-utilities/decorators';
 - Multiple decorators can now be used simultaneously (ex. `autobind` with `debounce`).
 
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.0.0...HEAD
-[2.0.0]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.1.6...v2.0.0
+[Unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/shopify/javascript-utilities/compare/v1.1.6...v2.0.0

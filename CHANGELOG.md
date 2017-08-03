@@ -1,5 +1,16 @@
 # Changelog
 ## [Unreleased]
+- Adds `clear` function to `fastdom`. Usage:
+```ts
+import {write, read, clear} from '@shopify/javscript-utilities/fastdom';
+
+const writeTask = write(...);
+const readTask = read(..);
+
+// later
+clear(writeTask);
+clear(readTask);
+```
 
 ## [2.0.0] - 2017-07-27
 ### Added

@@ -12,6 +12,19 @@ clear(writeTask);
 clear(readTask);
 ```
 
+- Adds a `createMethodDecorator` utility to facillitate creating decorators
+for methods. It can handle all of the edge cases we have seen so far, such as binding,
+taking in arguments, and handling descrepancies in the property descriptor when used
+together with other decorators. Usage:
+```ts
+import {createMethodDecorator} from '@shopify/javascript-utilities/decorators/factory';
+
+export default createMethodDecorator((method, thisArg, ...decoratorArgs) => {
+  // return new method
+});
+
+```
+
 ## [2.0.0] - 2017-07-27
 ### Added
 - Adds a `CHANGELOG` to document changes moving forward.

@@ -11,3 +11,5 @@ dependencies:
 test:
   pre:
     - yarn run check
+  override:
+    - yarn run test

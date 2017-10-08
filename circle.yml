@@ -4,10 +4,12 @@ machine:
 
 dependencies:
   override:
-    - yarn
+    - yarn --ignore-engines
   cache_directories:
     - ~/.cache/yarn
 
 test:
-  override:
+  pre:
     - yarn run check
+  override:
+    - yarn run test

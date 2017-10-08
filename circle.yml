@@ -9,5 +9,5 @@ dependencies:
     - ~/.cache/yarn
 
 test:
-  override:
+  pre:
     - yarn run check

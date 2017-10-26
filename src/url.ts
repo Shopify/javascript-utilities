@@ -10,11 +10,11 @@ export function getPath(urlParam: string): string {
 }
 
 let link: HTMLAnchorElement;
-function browserGetPath(url: string): string {
+function browserGetPath(urlParam: string): string {
   if (!link) {
     link = document.createElement('a');
   }
-  link.href = url;
+  link.href = urlParam;
   let path = link.pathname;
   if (path[0] !== '/') {
     path = `/${path}`;

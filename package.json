@@ -24,13 +24,13 @@
     "in-publish": "^2.0.0",
     "npm-run-all": "^4.0.2",
     "rimraf": "^2.6.1",
-    "tslint": "^4.5.1",
-    "tslint-config-shopify": "^1.5.0",
-    "typescript": "^2.2.2"
+    "tslint": "^5.8.0",
+    "tslint-config-shopify": "^3.0.1",
+    "typescript": "^2.5.3"
   },
   "dependencies": {
     "@types/lodash": "^4.14.65",
-    "@types/react": "^15.0.21",
+    "@types/react": "^16.0.2",
     "lodash": "^4.17.4",
     "lodash-decorators": "^4.3.5"
   }

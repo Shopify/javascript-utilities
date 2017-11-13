@@ -37,11 +37,11 @@ jobs:
       # For new branches, Circle falls back to matching the most recent master cache.
       - restore_cache:
           keys:
-            - v4-test-app-{{ .Branch }} # Match branch builds, favoring the most recent build.
-            - v4-test-app-master        # If there's no branch build match, use the most recent master cache.
+            - v4-test-{{ .Branch }} # Match branch builds, favoring the most recent build.
+            - v4-test-master        # If there's no branch build match, use the most recent master cache.
       - run: yarn run check
       - save_cache:
-         key: v4-test-app-{{ .Branch }}-{{ epoch }}
+         key: v4-test-{{ .Branch }}-{{ epoch }}
          paths:
            - build/cache
 

@@ -9,7 +9,7 @@
     "clean": "rimraf '*.{js,d.ts}'",
     "prebuild": "yarn run clean",
     "build": "tsc",
-    "lint": "tslint -c ./config/tslint/full.json './src/**/*.ts' --project tsconfig.json --type-check",
+    "lint": "tslint -c ./config/tslint/full.json './src/**/*.ts' --project tsconfig.json",
     "ts": "tsc --noEmit",
     "test": "echo 'no tests yet!'",
     "check": "npm-run-all lint ts",

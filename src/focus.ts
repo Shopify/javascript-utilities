@@ -2,9 +2,9 @@ import {matches} from './dom';
 
 export const FOCUSABLE_SELECTOR = 'a,frame,iframe,input:not([type=hidden]),select,textarea,button,*[tabindex]';
 
-export function findFirstFocusableNode(element: HTMLElement, onlyDescendants = true) {
+export function findFirstFocusableNode(element: HTMLElement, onlyDescendants = true): HTMLElement | null {
   if (!onlyDescendants && matches(element, FOCUSABLE_SELECTOR)) { return element; }
-  return element.querySelector(FOCUSABLE_SELECTOR) as HTMLElement | null;
+  return element.querySelector(FOCUSABLE_SELECTOR);
 }
 
 export function focusFirstFocusableNode(element: HTMLElement, onlyDescendants = true) {

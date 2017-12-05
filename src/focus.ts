@@ -1,6 +1,6 @@
 import {matches} from './dom';
 
-export const FOCUSABLE_SELECTOR = 'a,frame,iframe,input:not([type=hidden]),select,textarea,button,*[tabindex]';
+export const FOCUSABLE_SELECTOR = 'a,frame,iframe,input:not([type=hidden]):not(:disabled),select:not(:disabled),textarea:not(:disabled),button:not(:disabled),*[tabindex]';
 
 export function findFirstFocusableNode(element: HTMLElement, onlyDescendants = true): HTMLElement | null {
   if (!onlyDescendants && matches(element, FOCUSABLE_SELECTOR)) { return element; }

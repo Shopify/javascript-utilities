@@ -1,5 +1,6 @@
 # Changelog
 ## [Unreleased]
+- Updates `focus` functions to match only non-disabled nodes
 - Adds `clear` function to `fastdom`. Usage:
 ```ts
 import {write, read, clear} from '@shopify/javscript-utilities/fastdom';

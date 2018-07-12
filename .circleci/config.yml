@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/javascript-utilities
   docker:
-    - image: circleci/node:8.6.0-browsers
+    - image: circleci/node:8.11-browsers
 
 version: 2
 jobs:
@@ -22,7 +22,7 @@ jobs:
           root: ~/
           paths:
             - javascript-utilities
-  
+
   test:
     <<: *defaults
     steps:

@@ -1,11 +1,11 @@
 export enum Weekdays {
-  Sunday,
-  Monday,
-  Tuesday,
-  Wednesday,
-  Thursday,
-  Friday,
-  Saturday,
+  Sunday = 0,
+  Monday = 1,
+  Tuesday = 2,
+  Wednesday = 3,
+  Thursday = 4,
+  Friday = 5,
+  Saturday = 6,
 }
 
 export enum Months {
@@ -58,7 +58,11 @@ export type Week = (Date | null)[];
 
 const WEEK_LENGTH = 7;
 
-export function getWeeksForMonth(month: Months, year: Year): Week[] {
+export function getWeeksForMonth(
+  month: Months,
+  year: Year,
+  weekStartsOn: Weekdays = Weekdays.Sunday,
+): Week[] {
   const firstOfMonth = new Date(year, month, 1);
   const firstDayOfWeek = firstOfMonth.getDay();
   const weeks: Week[] = [[]];
@@ -66,7 +70,8 @@ export function getWeeksForMonth(month: Months, year: Year): Week[] {
   let currentWeek = weeks[0];
   let currentDate = firstOfMonth;
 
-  for (let i = 0; i < firstDayOfWeek; i++) {
+  const orderedWeekday = getOrderedWeekdays(weekStartsOn);
+  for (let i = 0; i < orderedWeekday.indexOf(firstDayOfWeek); i++) {
     currentWeek.push(null);
   }
 
@@ -172,4 +177,20 @@ export function isDateAfter(date: Date, dateToCompare: Date) {
 
 export function isDateBefore(date: Date, dateToCompare: Date) {
   return date.getTime() < dateToCompare.getTime();
+}
+
+const WEEKDAYS = [
+  Weekdays.Sunday,
+  Weekdays.Monday,
+  Weekdays.Tuesday,
+  Weekdays.Wednesday,
+  Weekdays.Thursday,
+  Weekdays.Friday,
+  Weekdays.Saturday,
+];
+
+function getOrderedWeekdays(weekStartsOn: Weekdays): Weekdays[] {
+  const weekDays = [...WEEKDAYS];
+  const restOfDays = weekDays.splice(weekStartsOn);
+  return [...restOfDays, ...weekDays];
 }

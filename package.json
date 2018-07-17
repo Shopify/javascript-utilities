@@ -11,8 +11,8 @@
     "build": "tsc",
     "lint": "tslint -c ./config/tslint/full.json './src/**/*.ts' --project tsconfig.json",
     "ts": "tsc --noEmit",
-    "test": "echo 'no tests yet!'",
-    "check": "npm-run-all lint ts",
+    "test": "jest",
+    "check": "npm-run-all lint ts test",
     "prepublish": "in-publish && yarn run build || :"
   },
   "bugs": {
@@ -20,10 +20,13 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^23.1.5",
     "@types/lodash-decorators": "^4.0.0",
     "in-publish": "^2.0.0",
+    "jest": "^23.4.0",
     "npm-run-all": "^4.0.2",
     "rimraf": "^2.6.1",
+    "ts-jest": "^23.0.0",
     "tslint": "^5.8.0",
     "tslint-config-shopify": "^3.0.1",
     "typescript": "^2.5.3"
@@ -33,5 +36,18 @@
     "@types/react": "^16.0.2",
     "lodash": "^4.17.4",
     "lodash-decorators": "^4.3.5"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(\\.|/)(test|spec)\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   }
 }

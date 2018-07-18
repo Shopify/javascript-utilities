@@ -5,6 +5,9 @@
   "homepage": "https://github.com/Shopify/javascript-utilities",
   "repository": "https://github.com/Shopify/javascript-utilities",
   "author": "Shopify <dev@shopify.com>",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "clean": "rimraf '*.{js,d.ts}'",
     "prebuild": "yarn run clean",

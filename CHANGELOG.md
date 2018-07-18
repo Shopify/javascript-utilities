@@ -1,5 +1,14 @@
 # Changelog
-## [Unreleased]
+
+[//]: # (## [Unreleased])
+
+
+## [2.2.0] - 2018-07-18
+
+- [Dates] Added third parameter to `getWeeksForMonth` to specify what day the week starts on.
+
+## [2.1.0] - 2017-10-27
+
 - Updates `focus` functions to match only non-disabled nodes
 - Adds `clear` function to `fastdom`. Usage:
 ```ts
@@ -33,5 +42,7 @@ import {autobind} from '@shopify/javascript-utilities/decorators';
 - Multiple decorators can now be used simultaneously (ex. `autobind` with `debounce`).
 
 
-[Unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.2.0...HEAD
 [2.0.0]: https://github.com/shopify/javascript-utilities/compare/v1.1.6...v2.0.0
+[2.1.0]: https://github.com/shopify/javascript-utilities/compare/v2.0.0...v2.1.0
+[2.2.0]: https://github.com/shopify/javascript-utilities/compare/v2.1.0...v2.2.0

@@ -15,6 +15,8 @@
 
 ## Table of Contents
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Shopify/javascript-utilities.svg)](https://greenkeeper.io/)
+
   - [Installation](#installation)
   - [API](#api-reference)
   - [Contribute](#contribute)

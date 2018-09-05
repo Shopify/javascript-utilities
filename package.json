@@ -32,13 +32,13 @@
     "ts-jest": "^23.0.0",
     "tslint": "^5.8.0",
     "tslint-config-shopify": "^3.0.1",
-    "typescript": "^2.5.3"
+    "typescript": "^3.0.3"
   },
   "dependencies": {
     "@types/lodash": "^4.14.65",
     "@types/react": "^16.0.2",
     "lodash": "^4.17.4",
-    "lodash-decorators": "^4.3.5"
+    "lodash-decorators": "^6.0.0"
   },
   "jest": {
     "transform": {

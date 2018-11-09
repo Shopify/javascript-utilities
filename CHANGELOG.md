@@ -1,7 +1,10 @@
 # Changelog
 
-[//]: # (## [Unreleased])
+[//]: # '## [Unreleased]'
 
+## [2.2.1] - 2018-11-09
+
+- [Dates] Fixed `getNewRange()` when `start` and `end` date are the same but have different references [#42](https://github.com/Shopify/javascript-utilities/pull/42)
 
 ## [2.2.0] - 2018-07-18
 
@@ -11,6 +14,7 @@
 
 - Updates `focus` functions to match only non-disabled nodes
 - Adds `clear` function to `fastdom`. Usage:
+
 ```ts
 import {write, read, clear} from '@shopify/javscript-utilities/fastdom';
 
@@ -23,12 +27,16 @@ clear(readTask);
 ```
 
 ## [2.0.0] - 2017-07-27
+
 ### Added
+
 - Adds a `CHANGELOG` to document changes moving forward.
 
 ### Changed
+
 - The `autobind` decorator is now in the `decorators` directory.
-    - **WARNING** any existing imports must be changed accordingly:
+  - **WARNING** any existing imports must be changed accordingly:
+
 ```ts
 // old way
 import autobind from '@shopify/javascript-utilities/autobind';
@@ -36,13 +44,17 @@ import autobind from '@shopify/javascript-utilities/autobind';
 // new way
 import {autobind} from '@shopify/javascript-utilities/decorators';
 ```
+
 - Updated documentation in `README.md` and `CONTRIBUTING.md`.
 
 ### Fixed
+
 - Multiple decorators can now be used simultaneously (ex. `autobind` with `debounce`).
 
+---
 
-[Unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.2.0...HEAD
-[2.0.0]: https://github.com/shopify/javascript-utilities/compare/v1.1.6...v2.0.0
-[2.1.0]: https://github.com/shopify/javascript-utilities/compare/v2.0.0...v2.1.0
+[unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.2.1...HEAD
+[2.2.1]: https://github.com/shopify/javascript-utilities/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/shopify/javascript-utilities/compare/v2.1.0...v2.2.0
+[2.1.0]: https://github.com/shopify/javascript-utilities/compare/v2.0.0...v2.1.0
+[2.0.0]: https://github.com/shopify/javascript-utilities/compare/v1.1.6...v2.0.0

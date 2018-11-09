@@ -1,4 +1,4 @@
-import { Weekdays, getWeeksForMonth, abbreviationForWeekday } from '../dates';
+import { Weekdays, getWeeksForMonth, abbreviationForWeekday, getNewRange } from '../dates';
 
 describe('abbreviationForWeekday()', () => {
   it('abbreviates the word correctly', () => {
@@ -61,5 +61,25 @@ describe('getWeeksForMonth()', () => {
     expect(weeks[0][4]).toBeNull();
     expect(weeks[0][5]).toBeNull();
     expect(weeks[0][6]).not.toBeNull();
+  });
+});
+
+describe('getNewRange()', () => {
+  it('returns a new range with end date in the future', () => {
+    // startDate and endDate are the same date but have different references for
+    // test purposes
+    const startDate = new Date('01 Jan 2018 00:00:00 GMT');
+    const endDate = new Date('01 Jan 2018 00:00:00 GMT');
+    const futureDate = new Date('05 Jan 2018 00:00:00 GMT');
+
+    const range = {
+      start: startDate,
+      end: endDate,
+    };
+
+    expect(getNewRange(range, futureDate)).toEqual({
+      start: startDate,
+      end: futureDate,
+    });
   });
 });

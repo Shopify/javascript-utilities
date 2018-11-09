@@ -122,19 +122,19 @@ export function getNewRange(range: Range | undefined, selected: Date): Range {
 
   const {start, end} = range;
 
-  if (end && start !== end) {
+  if (end && (isDateAfter(start, end) || isDateBefore(start, end))) {
     return {start: selected, end: selected};
   }
 
   if (start) {
-    if (selected < start) {
+    if (isDateBefore(selected, start)) {
       return {start: selected, end: selected};
     }
     return {start, end: selected};
   }
 
   if (end) {
-    if (selected < end) {
+    if (isDateBefore(selected, end)) {
       return {start: selected, end};
     }
     return {start: start || end, end: selected};

@@ -179,6 +179,31 @@ export function isDateBefore(date: Date, dateToCompare: Date) {
   return date.getTime() < dateToCompare.getTime();
 }
 
+export function isSameMonthAndYear(source: Date, target: Date) {
+  return (
+    source.getFullYear() === target.getFullYear() &&
+    source.getMonth() === target.getMonth()
+  );
+}
+
+export function isSameDate(source: Date, target: Date) {
+  return (
+    isSameMonthAndYear(source, target) && source.getDate() === target.getDate()
+  );
+}
+
+export function isToday(date: Date) {
+  const today = new Date();
+  return isSameDate(today, date);
+}
+
+export function isYesterday(date: Date) {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  return isSameDate(yesterday, date);
+}
+
 const WEEKDAYS = [
   Weekdays.Sunday,
   Weekdays.Monday,

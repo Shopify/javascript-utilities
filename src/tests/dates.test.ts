@@ -1,4 +1,13 @@
-import { Weekdays, getWeeksForMonth, abbreviationForWeekday, getNewRange } from '../dates';
+import {
+  abbreviationForWeekday,
+  getNewRange,
+  getWeeksForMonth,
+  isSameDate,
+  isSameMonthAndYear,
+  isToday,
+  isYesterday,
+  Weekdays,
+} from '../dates';
 
 describe('abbreviationForWeekday()', () => {
   it('abbreviates the word correctly', () => {
@@ -81,5 +90,130 @@ describe('getNewRange()', () => {
       start: startDate,
       end: futureDate,
     });
+  });
+});
+
+describe('isSameMonthAndYear', () => {
+  it('returns true for dates with same month and year', () => {
+    const date1 = new Date('01 Jan 2018 00:00:00 GMT');
+    const date2 = new Date(date1.getTime());
+    expect(isSameMonthAndYear(date1, date2)).toBe(true);
+
+    date2.setDate(2);
+    expect(isSameMonthAndYear(date1, date2)).toBe(true);
+  });
+
+  it('returns false for dates with same month and different year', () => {
+    const date1 = new Date('01 Jan 2018 00:00:00 GMT');
+    const date2 = new Date(date1.getTime());
+    date2.setFullYear(date1.getFullYear() + 1);
+    expect(isSameMonthAndYear(date1, date2)).toBe(false);
+  });
+
+  it('returns false for dates with different month and same year', () => {
+    const date1 = new Date('01 Jan 2018 00:00:00 GMT');
+    const date2 = new Date(date1.getTime());
+    date2.setMonth(date1.getMonth() + 1);
+    expect(isSameMonthAndYear(date1, date2)).toBe(false);
+  });
+});
+
+describe('isSameDate', () => {
+  it('returns true for dates with same day, month, and year', () => {
+    const date1 = new Date('01 Jan 2018 00:00:00 GMT');
+    const date2 = new Date(date1.getTime());
+    expect(isSameDate(date1, date2)).toBe(true);
+
+    date2.setHours(2);
+    expect(isSameDate(date1, date2)).toBe(true);
+  });
+
+  it('returns false for dates with same day and month, but different year', () => {
+    const date1 = new Date('01 Jan 2018 00:00:00 GMT');
+    const date2 = new Date(date1.getTime());
+    date2.setFullYear(date1.getFullYear() + 1);
+    expect(isSameDate(date1, date2)).toBe(false);
+  });
+
+  it('returns false for dates with same day and year, but different month', () => {
+    const date1 = new Date('01 Jan 2018 00:00:00 GMT');
+    const date2 = new Date(date1.getTime());
+    date2.setMonth(date1.getMonth() + 1);
+    expect(isSameDate(date1, date2)).toBe(false);
+  });
+
+  it('returns false for dates with same month and year, but different day', () => {
+    const date1 = new Date('01 Jan 2018 00:00:00 GMT');
+    const date2 = new Date(date1.getTime());
+    date2.setDate(date1.getDate() + 1);
+    expect(isSameDate(date1, date2)).toBe(false);
+  });
+});
+
+describe('isToday', () => {
+  it('returns true for dates with same day, month, and year as today', () => {
+    const today = new Date();
+    expect(isToday(today)).toBe(true);
+
+    // Time is irrelevant
+    const differentMinutes = new Date(today.getTime());
+    differentMinutes.setMinutes(today.getMinutes() + 1);
+    expect(isToday(differentMinutes)).toBe(true);
+
+    const differentHours = new Date(today.getTime());
+    differentHours.setHours(today.getHours() + 1);
+    expect(isToday(differentHours)).toBe(true);
+  });
+
+  it('returns false for dates with different day, month, or year from today', () => {
+    const today = new Date();
+
+    const differentDay = new Date(today.getTime());
+    differentDay.setDate(today.getDate() + 1);
+    expect(isToday(differentDay)).toBe(false);
+
+    const differentMonth = new Date(today.getTime());
+    differentMonth.setMonth(today.getMonth() + 1);
+    expect(isToday(differentMonth)).toBe(false);
+
+    const differentYear = new Date(today.getTime());
+    differentYear.setFullYear(today.getFullYear() + 1);
+    expect(isToday(differentYear)).toBe(false);
+  });
+});
+
+describe('isYesterday', () => {
+  it('returns true for dates with same day, month, and year as the day before today', () => {
+    const today = new Date();
+    const yesterday = new Date(today.getTime());
+    yesterday.setDate(today.getDate() - 1);
+    expect(isYesterday(yesterday)).toBe(true);
+
+    // Time is irrelevant
+    const differentMinutes = new Date(yesterday.getTime());
+    differentMinutes.setMinutes(yesterday.getMinutes() + 1);
+    expect(isYesterday(differentMinutes)).toBe(true);
+
+    const differentHours = new Date(yesterday.getTime());
+    differentHours.setHours(yesterday.getHours() + 1);
+    expect(isYesterday(differentHours)).toBe(true);
+  });
+
+  it('returns false for dates with different day, month, or year from today', () => {
+    const today = new Date();
+    const yesterday = new Date(today.getTime());
+    yesterday.setDate(today.getDate() - 1);
+
+    const differentDay = new Date(yesterday.getTime());
+    differentDay.setDate(yesterday.getDate() + 1);
+    expect(isYesterday(differentDay)).toBe(false);
+
+    const differentMonth = new Date(yesterday.getTime());
+    differentMonth.setMonth(yesterday.getMonth() + 1);
+    expect(isYesterday(differentMonth)).toBe(false);
+
+    const differentYear = new Date(yesterday.getTime());
+    differentYear.setFullYear(yesterday.getFullYear() + 1);
+    expect(isYesterday(differentYear)).toBe(false);
   });
 });

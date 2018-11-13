@@ -2,6 +2,8 @@
 
 [//]: # '## [Unreleased]'
 
+- [Dates] Added new helper functions: `isSameDate`, `isSameMonthAndYear`, `isToday`, and `isYesterday`.
+
 ## [2.2.1] - 2018-11-09
 
 - [Dates] Fixed `getNewRange()` when `start` and `end` date are the same but have different references [#42](https://github.com/Shopify/javascript-utilities/pull/42)

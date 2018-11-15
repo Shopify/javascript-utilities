@@ -2,6 +2,8 @@
 
 [//]: # '## [Unreleased]'
 
+## [2.3.0] - 2018-11-15
+
 - [Dates] Added new helper functions: `isSameDate`, `isSameMonthAndYear`, `isToday`, and `isYesterday`.
 
 ## [2.2.1] - 2018-11-09

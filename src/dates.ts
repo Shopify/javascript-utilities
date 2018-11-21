@@ -108,10 +108,13 @@ export function dateIsSelected(day: Date | null, range: Range) {
 }
 
 export function isSameDay(day1: Date, day2: Date) {
+  const unoffsettedDay1 = unapplyTimezoneOffset(day1);
+  const unoffsettedDay2 = unapplyTimezoneOffset(day2);
+
   return (
-    (day1.getDate() === day2.getDate()) &&
-    (day1.getMonth() === day2.getMonth()) &&
-    (day1.getFullYear() === day2.getFullYear())
+    (unoffsettedDay1.getDate() === unoffsettedDay2.getDate()) &&
+    (unoffsettedDay1.getMonth() === unoffsettedDay2.getMonth()) &&
+    (unoffsettedDay1.getFullYear() === unoffsettedDay2.getFullYear())
   );
 }
 
@@ -218,4 +221,9 @@ function getOrderedWeekdays(weekStartsOn: Weekdays): Weekdays[] {
   const weekDays = [...WEEKDAYS];
   const restOfDays = weekDays.splice(weekStartsOn);
   return [...restOfDays, ...weekDays];
+}
+
+
+function unapplyTimezoneOffset(day: Date) {
+  return new Date(day.valueOf() + (day.getTimezoneOffset() * 60 * 1000));
 }

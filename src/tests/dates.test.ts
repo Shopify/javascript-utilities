@@ -6,6 +6,7 @@ import {
   isSameMonthAndYear,
   isToday,
   isYesterday,
+  isSameDay,
   Weekdays,
 } from '../dates';
 
@@ -215,5 +216,19 @@ describe('isYesterday', () => {
     const differentYear = new Date(yesterday.getTime());
     differentYear.setFullYear(yesterday.getFullYear() + 1);
     expect(isYesterday(differentYear)).toBe(false);
+  });
+});
+
+describe('isSameDay', () => {
+  it('returns true for dates of same day even if time is different', () => {
+    const morning = new Date('01 Jan 2018 00:00:00 GMT');
+    const afterNoon = new Date('01 Jan 2018 23:59:59 GMT');
+    expect(isSameDay(morning, afterNoon)).toBe(true);
+  });
+
+  it('returns false for dates of different day', () => {
+    const morning = new Date('01 Jan 2018 00:00:00 GMT');
+    const afterNoon = new Date('02 Jan 2018 00:00:01 GMT');
+    expect(isSameDay(morning, afterNoon)).toBe(false);
   });
 });

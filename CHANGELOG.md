@@ -1,6 +1,10 @@
 # Changelog
 
-[//]: # '## [Unreleased]'
+## [Unreleased]
+
+### Added
+
+- [Dates] New helper functions: `getDateDiff`, `isLessThanOneMinuteAgo`, `isLessThanOneHourAgo`, `isLessThanOneDayAgo`, `isLessThanOneWeekAgo`, and `isLessThanOneYearAgo`.
 
 ## [2.3.0] - 2018-11-15
 
@@ -57,7 +61,8 @@ import {autobind} from '@shopify/javascript-utilities/decorators';
 
 ---
 
-[unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.2.1...HEAD
+[unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/shopify/javascript-utilities/compare/v2.2.1...v2.3.0
 [2.2.1]: https://github.com/shopify/javascript-utilities/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/shopify/javascript-utilities/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/shopify/javascript-utilities/compare/v2.0.0...v2.1.0

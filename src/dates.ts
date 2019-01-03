@@ -23,6 +23,15 @@ export enum Months {
   December,
 }
 
+export enum TimeUnit {
+  Second = 1000,
+  Minute = Second * 60,
+  Hour = Minute * 60,
+  Day = Hour * 24,
+  Week = Day * 7,
+  Year = Day * 365,
+}
+
 export interface Range {
   start: Date,
   end: Date,
@@ -115,6 +124,10 @@ export function isSameDay(day1: Date, day2: Date) {
   );
 }
 
+export function getDateDiff(resolution: TimeUnit, date: Date, today = new Date()) {
+  return Math.floor((today.getTime() - date.getTime()) / resolution);
+}
+
 export function getNewRange(range: Range | undefined, selected: Date): Range {
   if (range == null) {
     return {start: selected, end: selected};
@@ -177,6 +190,26 @@ export function isDateAfter(date: Date, dateToCompare: Date) {
 
 export function isDateBefore(date: Date, dateToCompare: Date) {
   return date.getTime() < dateToCompare.getTime();
+}
+
+export function isLessThanOneMinuteAgo(date: Date, today = new Date()) {
+  return today.getTime() - date.getTime() < TimeUnit.Minute;
+}
+
+export function isLessThanOneHourAgo(date: Date, today = new Date()) {
+  return today.getTime() - date.getTime() < TimeUnit.Hour;
+}
+
+export function isLessThanOneDayAgo(date: Date, today = new Date()) {
+  return today.getTime() - date.getTime() < TimeUnit.Day;
+}
+
+export function isLessThanOneWeekAgo(date: Date, today = new Date()) {
+  return today.getTime() - date.getTime() < TimeUnit.Week;
+}
+
+export function isLessThanOneYearAgo(date: Date, today = new Date()) {
+  return today.getTime() - date.getTime() < TimeUnit.Year;
 }
 
 export function isSameMonthAndYear(source: Date, target: Date) {

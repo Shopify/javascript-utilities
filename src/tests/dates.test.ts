@@ -1,11 +1,18 @@
 import {
   abbreviationForWeekday,
+  getDateDiff,
   getNewRange,
   getWeeksForMonth,
+  isLessThanOneMinuteAgo,
+  isLessThanOneHourAgo,
+  isLessThanOneDayAgo,
+  isLessThanOneWeekAgo,
+  isLessThanOneYearAgo,
   isSameDate,
   isSameMonthAndYear,
   isToday,
   isYesterday,
+  TimeUnit,
   Weekdays,
 } from '../dates';
 
@@ -18,6 +25,79 @@ describe('abbreviationForWeekday()', () => {
     expect(abbreviationForWeekday(Weekdays.Thursday)).toBe('Th');
     expect(abbreviationForWeekday(Weekdays.Friday)).toBe('Fr');
     expect(abbreviationForWeekday(Weekdays.Saturday)).toBe('Sa');
+  });
+});
+
+describe('getDateDiff()', () => {
+  let now;
+  let testDate;
+
+  beforeEach(() => {
+    now = new Date();
+    testDate = new Date(now.getTime());
+    testDate.setFullYear(now.getFullYear() - 1);
+  });
+
+  it('returns expected diff in seconds', () => {
+    const diff = getDateDiff(TimeUnit.Second, testDate, now);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Second);
+  });
+
+  it('returns expected diff in minutes', () => {
+    const diff = getDateDiff(TimeUnit.Minute, testDate, now);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Minute);
+  });
+
+  it('returns expected diff in hours', () => {
+    const diff = getDateDiff(TimeUnit.Hour, testDate, now);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Hour);
+  });
+
+  it('returns expected diff in days', () => {
+    const diff = getDateDiff(TimeUnit.Day, testDate, now);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Day);
+  });
+
+  it('returns expected diff in weeks', () => {
+    const diff = getDateDiff(TimeUnit.Week, testDate, now);
+    expect(diff).toEqual(Math.floor(TimeUnit.Year / TimeUnit.Week));
+  });
+
+  it('returns expected diff in years', () => {
+    const diff = getDateDiff(TimeUnit.Year, testDate, now);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Year);
+  });
+
+  describe('second date defaults to today', () => {
+    it('returns expected diff in seconds', () => {
+      const diff = getDateDiff(TimeUnit.Second, testDate);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Second);
+    });
+
+    it('returns expected diff in minutes', () => {
+      const diff = getDateDiff(TimeUnit.Minute, testDate);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Minute);
+    });
+
+    it('returns expected diff in hours', () => {
+      const diff = getDateDiff(TimeUnit.Hour, testDate);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Hour);
+    });
+
+    it('returns expected diff in days', () => {
+      const diff = getDateDiff(TimeUnit.Day, testDate);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Day);
+    });
+
+    it('returns expected diff in weeks', () => {
+      const diff = getDateDiff(TimeUnit.Week, testDate);
+      expect(diff).toEqual(Math.floor(TimeUnit.Year / TimeUnit.Week));
+    });
+
+    it('returns expected diff in years', () => {
+      const diff = getDateDiff(TimeUnit.Year, testDate);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Year);
+    });
   });
 });
 
@@ -90,6 +170,121 @@ describe('getNewRange()', () => {
       start: startDate,
       end: futureDate,
     });
+  });
+});
+
+describe('isLessThanOneMinuteAgo', () => {
+  it('returns false for dates more than one minute apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setSeconds(now.getSeconds() - 61);
+    expect(isLessThanOneMinuteAgo(other, now)).toBe(false);
+  });
+
+  it('returns false for dates exactly one minute apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setSeconds(now.getSeconds() - 60);
+    expect(isLessThanOneMinuteAgo(other, now)).toBe(false);
+  });
+
+  it('returns true for dates less than one minute apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setSeconds(now.getSeconds() - 59);
+    expect(isLessThanOneMinuteAgo(other, now)).toBe(true);
+  });
+});
+
+describe('isLessThanOneHourAgo', () => {
+  it('returns false for dates more than one hour apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setMinutes(now.getMinutes() - 61);
+    expect(isLessThanOneHourAgo(other, now)).toBe(false);
+  });
+
+  it('returns false for dates exactly one hour apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setMinutes(now.getMinutes() - 60);
+    expect(isLessThanOneHourAgo(other, now)).toBe(false);
+  });
+
+  it('returns true for dates less than one hour apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setMinutes(now.getMinutes() - 59);
+    expect(isLessThanOneHourAgo(other, now)).toBe(true);
+  });
+});
+
+describe('isLessThanOneDayAgo', () => {
+  it('returns false for dates more than one day apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setHours(now.getHours() - 25);
+    expect(isLessThanOneDayAgo(other, now)).toBe(false);
+  });
+
+  it('returns false for dates exactly one day apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setHours(now.getHours() - 24);
+    expect(isLessThanOneDayAgo(other, now)).toBe(false);
+  });
+
+  it('returns true for dates less than one day apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setHours(now.getHours() - 23);
+    expect(isLessThanOneDayAgo(other, now)).toBe(true);
+  });
+});
+
+describe('isLessThanOneWeekAgo', () => {
+  it('returns false for dates more than one week apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setDate(now.getDate() - 8);
+    expect(isLessThanOneWeekAgo(other, now)).toBe(false);
+  });
+
+  it('returns false for dates exactly one week apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setDate(now.getDate() - 7);
+    expect(isLessThanOneWeekAgo(other, now)).toBe(false);
+  });
+
+  it('returns true for dates less than one week apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setDate(now.getDate() - 6);
+    expect(isLessThanOneWeekAgo(other, now)).toBe(true);
+  });
+});
+
+describe('isLessThanOneYearAgo', () => {
+  it('returns false for dates more than one year apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setDate(now.getDate() - 366);
+    expect(isLessThanOneYearAgo(other, now)).toBe(false);
+  });
+
+  it('returns false for dates exactly one year apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setDate(now.getDate() - 365);
+    expect(isLessThanOneYearAgo(other, now)).toBe(false);
+  });
+
+  it('returns true for dates less than one year apart', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setDate(now.getDate() - 364);
+    expect(isLessThanOneYearAgo(other, now)).toBe(true);
   });
 });
 

@@ -29,14 +29,9 @@ describe('abbreviationForWeekday()', () => {
 });
 
 describe('getDateDiff()', () => {
-  let now;
-  let testDate;
-
-  beforeEach(() => {
-    now = new Date();
-    testDate = new Date(now.getTime());
-    testDate.setFullYear(now.getFullYear() - 1);
-  });
+  const now = new Date();
+  const testDate = new Date(now.getTime());
+  testDate.setFullYear(now.getFullYear() - 1);
 
   it('returns expected diff in seconds', () => {
     const diff = getDateDiff(TimeUnit.Second, testDate, now);

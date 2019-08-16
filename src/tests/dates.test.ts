@@ -169,6 +169,13 @@ describe('getNewRange()', () => {
 });
 
 describe('isLessThanOneMinuteAgo', () => {
+  it('returns false for dates in the future', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setFullYear(now.getFullYear() + 1);
+    expect(isLessThanOneMinuteAgo(other, now)).toBe(false);
+  });
+
   it('returns false for dates more than one minute apart', () => {
     const now = new Date();
     const other = new Date(now.getTime());
@@ -192,6 +199,13 @@ describe('isLessThanOneMinuteAgo', () => {
 });
 
 describe('isLessThanOneHourAgo', () => {
+  it('returns false for dates in the future', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setFullYear(now.getFullYear() + 1);
+    expect(isLessThanOneHourAgo(other, now)).toBe(false);
+  });
+
   it('returns false for dates more than one hour apart', () => {
     const now = new Date();
     const other = new Date(now.getTime());
@@ -215,6 +229,13 @@ describe('isLessThanOneHourAgo', () => {
 });
 
 describe('isLessThanOneDayAgo', () => {
+  it('returns false for dates in the future', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setFullYear(now.getFullYear() + 1);
+    expect(isLessThanOneDayAgo(other, now)).toBe(false);
+  });
+
   it('returns false for dates more than one day apart', () => {
     const now = new Date();
     const other = new Date(now.getTime());
@@ -238,6 +259,13 @@ describe('isLessThanOneDayAgo', () => {
 });
 
 describe('isLessThanOneWeekAgo', () => {
+  it('returns false for dates in the future', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setFullYear(now.getFullYear() + 1);
+    expect(isLessThanOneWeekAgo(other, now)).toBe(false);
+  });
+
   it('returns false for dates more than one week apart', () => {
     const now = new Date();
     const other = new Date(now.getTime());
@@ -261,6 +289,13 @@ describe('isLessThanOneWeekAgo', () => {
 });
 
 describe('isLessThanOneYearAgo', () => {
+  it('returns false for dates in the future', () => {
+    const now = new Date();
+    const other = new Date(now.getTime());
+    other.setFullYear(now.getFullYear() + 1);
+    expect(isLessThanOneYearAgo(other, now)).toBe(false);
+  });
+
   it('returns false for dates more than one year apart', () => {
     const now = new Date();
     const other = new Date(now.getTime());

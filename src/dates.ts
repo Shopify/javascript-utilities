@@ -193,23 +193,23 @@ export function isDateBefore(date: Date, dateToCompare: Date) {
 }
 
 export function isLessThanOneMinuteAgo(date: Date, today = new Date()) {
-  return today.getTime() - date.getTime() < TimeUnit.Minute;
+  return (isDateBefore(date, today) && today.getTime() - date.getTime() < TimeUnit.Minute);
 }
 
 export function isLessThanOneHourAgo(date: Date, today = new Date()) {
-  return today.getTime() - date.getTime() < TimeUnit.Hour;
+  return (isDateBefore(date, today) && today.getTime() - date.getTime() < TimeUnit.Hour);
 }
 
 export function isLessThanOneDayAgo(date: Date, today = new Date()) {
-  return today.getTime() - date.getTime() < TimeUnit.Day;
+  return (isDateBefore(date, today) && today.getTime() - date.getTime() < TimeUnit.Day);
 }
 
 export function isLessThanOneWeekAgo(date: Date, today = new Date()) {
-  return today.getTime() - date.getTime() < TimeUnit.Week;
+  return (isDateBefore(date, today) && today.getTime() - date.getTime() < TimeUnit.Week);
 }
 
 export function isLessThanOneYearAgo(date: Date, today = new Date()) {
-  return today.getTime() - date.getTime() < TimeUnit.Year;
+  return (isDateBefore(date, today) && today.getTime() - date.getTime() < TimeUnit.Year);
 }
 
 export function isSameMonthAndYear(source: Date, target: Date) {

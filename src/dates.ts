@@ -237,6 +237,17 @@ export function isYesterday(date: Date) {
   return isSameDate(yesterday, date);
 }
 
+export function isTomorrow(date: Date) {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  return isSameDate(tomorrow, date);
+}
+
+export function isLeapYear(year: Year) {
+  return (year % 400 === 0) || ((year % 4 === 0) && (year % 100 !== 0));
+}
+
 const WEEKDAYS = [
   Weekdays.Sunday,
   Weekdays.Monday,

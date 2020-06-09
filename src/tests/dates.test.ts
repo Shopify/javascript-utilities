@@ -29,7 +29,7 @@ describe('abbreviationForWeekday()', () => {
 });
 
 describe('getDateDiff()', () => {
-  const now = new Date();
+  const now = new Date(2019, 1, 1);
   const testDate = new Date(now.getTime());
   testDate.setFullYear(now.getFullYear() - 1);
 
@@ -64,6 +64,16 @@ describe('getDateDiff()', () => {
   });
 
   describe('second date defaults to today', () => {
+    let spyDate;
+
+    beforeEach(() => {
+      spyDate = jest.spyOn(global, 'Date').mockImplementationOnce(() => now);
+    });
+
+    afterEach(() => {
+      spyDate.mockRestore();
+    });
+
     it('returns expected diff in seconds', () => {
       const diff = getDateDiff(TimeUnit.Second, testDate);
       expect(diff).toEqual(TimeUnit.Year / TimeUnit.Second);

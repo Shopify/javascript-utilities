@@ -12,8 +12,6 @@ import {
   isSameMonthAndYear,
   isToday,
   isYesterday,
-  isTomorrow,
-  isLeapYear,
   TimeUnit,
   Weekdays,
 } from '../dates';
@@ -31,72 +29,79 @@ describe('abbreviationForWeekday()', () => {
 });
 
 describe('getDateDiff()', () => {
-  const now = new Date();
+  const now = new Date(2019, 1, 1);
   const testDate = new Date(now.getTime());
   testDate.setFullYear(now.getFullYear() - 1);
-  const timeUnitYear = isLeapYear(now.getFullYear())
-  ? TimeUnit.Day * 366
-  : TimeUnit.Year;
 
   it('returns expected diff in seconds', () => {
     const diff = getDateDiff(TimeUnit.Second, testDate, now);
-    expect(diff).toEqual(timeUnitYear / TimeUnit.Second);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Second);
   });
 
   it('returns expected diff in minutes', () => {
     const diff = getDateDiff(TimeUnit.Minute, testDate, now);
-    expect(diff).toEqual(timeUnitYear / TimeUnit.Minute);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Minute);
   });
 
   it('returns expected diff in hours', () => {
     const diff = getDateDiff(TimeUnit.Hour, testDate, now);
-    expect(diff).toEqual(timeUnitYear / TimeUnit.Hour);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Hour);
   });
 
   it('returns expected diff in days', () => {
     const diff = getDateDiff(TimeUnit.Day, testDate, now);
-    expect(diff).toEqual(timeUnitYear / TimeUnit.Day);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Day);
   });
 
   it('returns expected diff in weeks', () => {
     const diff = getDateDiff(TimeUnit.Week, testDate, now);
-    expect(diff).toEqual(Math.floor(timeUnitYear / TimeUnit.Week));
+    expect(diff).toEqual(Math.floor(TimeUnit.Year / TimeUnit.Week));
   });
 
   it('returns expected diff in years', () => {
-    const diff = getDateDiff(timeUnitYear, testDate, now);
-    expect(diff).toEqual(timeUnitYear / timeUnitYear);
+    const diff = getDateDiff(TimeUnit.Year, testDate, now);
+    expect(diff).toEqual(TimeUnit.Year / TimeUnit.Year);
   });
 
   describe('second date defaults to today', () => {
+    let spyDate;
+
+    beforeEach(() => {
+      spyDate = jest.spyOn(global, 'Date').mockImplementationOnce(() => now);
+    });
+
+    afterEach(() => {
+      spyDate.mockRestore();
+    });
+
     it('returns expected diff in seconds', () => {
       const diff = getDateDiff(TimeUnit.Second, testDate);
-      expect(diff).toEqual(timeUnitYear / TimeUnit.Second);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Second);
     });
 
     it('returns expected diff in minutes', () => {
       const diff = getDateDiff(TimeUnit.Minute, testDate);
-      expect(diff).toEqual(timeUnitYear / TimeUnit.Minute);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Minute);
     });
 
     it('returns expected diff in hours', () => {
       const diff = getDateDiff(TimeUnit.Hour, testDate);
-      expect(diff).toEqual(timeUnitYear / TimeUnit.Hour);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Hour);
     });
 
     it('returns expected diff in days', () => {
       const diff = getDateDiff(TimeUnit.Day, testDate);
-      expect(diff).toEqual(timeUnitYear / TimeUnit.Day);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Day);
     });
 
     it('returns expected diff in weeks', () => {
       const diff = getDateDiff(TimeUnit.Week, testDate);
-      expect(diff).toEqual(Math.floor(timeUnitYear / TimeUnit.Week));
+      expect(diff).toEqual(Math.floor(TimeUnit.Year / TimeUnit.Week));
     });
 
     it('returns expected diff in years', () => {
-      const diff = getDateDiff(timeUnitYear, testDate);
-      expect(diff).toEqual(timeUnitYear / timeUnitYear);
+      const diff = getDateDiff(TimeUnit.Year, testDate);
+      expect(diff).toEqual(TimeUnit.Year / TimeUnit.Year);
     });
   });
 });
@@ -445,71 +450,5 @@ describe('isYesterday', () => {
     const differentYear = new Date(yesterday.getTime());
     differentYear.setFullYear(yesterday.getFullYear() + 1);
     expect(isYesterday(differentYear)).toBe(false);
-  });
-});
-
-describe('isTomorrow', () => {
-  it('returns true for dates with same day, month, and year as the day after today', () => {
-    const today = new Date();
-    const tomorrow = new Date(today.getTime());
-    tomorrow.setDate(today.getDate() + 1);
-    expect(isTomorrow(tomorrow)).toBe(true);
-
-    // Time is irrelevant
-    const differentMinutes = new Date(tomorrow.getTime());
-    differentMinutes.setMinutes(tomorrow.getMinutes() + 1);
-    expect(isTomorrow(differentMinutes)).toBe(true);
-
-    const differentHours = new Date(tomorrow.getTime());
-    differentHours.setHours(tomorrow.getHours() + 1);
-    expect(isTomorrow(differentHours)).toBe(true);
-  });
-
-  it('returns false for dates with different day, month, or year from today', () => {
-    const today = new Date();
-    const tomorrow = new Date(today.getTime());
-    tomorrow.setDate(today.getDate() + 1);
-
-    const differentDay = new Date(tomorrow.getTime());
-    differentDay.setDate(tomorrow.getDate() + 1);
-    expect(isTomorrow(differentDay)).toBe(false);
-
-    const differentMonth = new Date(tomorrow.getTime());
-    differentMonth.setMonth(tomorrow.getMonth() + 1);
-    expect(isTomorrow(differentMonth)).toBe(false);
-
-    const differentYear = new Date(tomorrow.getTime());
-    differentYear.setFullYear(tomorrow.getFullYear() + 1);
-    expect(isTomorrow(differentYear)).toBe(false);
-  });
-});
-
-describe('isLeapYear', () => {
-  it('returns false for year divisible by 4 and 100 but not divisible by 400', () => {
-    const now = new Date();
-    now.setFullYear(1900);
-    const year = now.getFullYear();
-    expect(isLeapYear(year)).toBe(false);
-  });
-
-  it('returns false for year not divisible by 4, 100 or 400', () => {
-    const now = new Date();
-    now.setFullYear(1241);
-    const year = now.getFullYear();
-    expect(isLeapYear(year)).toBe(false);
-  });
-
-  it('returns true for year divisible by 4, but not divisible by 400 and 100', () => {
-    const now = new Date();
-    now.setFullYear(2020);
-    const year = now.getFullYear();
-    expect(isLeapYear(year)).toBe(true);
-  });
-
-  it('returns true for year divisible by 4, 100 and 400', () => {
-    const now = new Date();
-    now.setFullYear(2000);
-    const year = now.getFullYear();
-    expect(isLeapYear(year)).toBe(true);
   });
 });

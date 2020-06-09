@@ -1,5 +1,8 @@
 <div align="center">
   <h1>javascript-utilities</h1>
+  <h3>:warning: This repo is in maintenance mode. Every new feature should be add to <a href="https://github.com/shopify/quilt">@shopify/quilt</a> :warning:</h3>
+  <h4>Also see <a href="https://github.com/Shopify/quilt/issues/136">this issue</a> for a rough plan on how old features can be migrated over to quilt.</h4>
+  <hr/>
   <h4>A set of utilities for JavaScript and TypeScript projects at Shopify.</h4>
   <a href="https://circleci.com/gh/Shopify/javascript-utilities">
     <img src="https://circleci.com/gh/Shopify/javascript-utilities.svg?style=shield"
@@ -15,11 +18,11 @@
 
 ## Table of Contents
 
-  - [Installation](#installation)
-  - [API](#api-reference)
-  - [Contribute](#contribute)
-  - [License](#license)
-  - [Changelog](http://github.com/Shopify/javascript-utilities/blob/master/CHANGELOG.md)
+- [Installation](#installation)
+- [API](#api-reference)
+- [Contribute](#contribute)
+- [License](#license)
+- [Changelog](http://github.com/Shopify/javascript-utilities/blob/master/CHANGELOG.md)
 
 ## Installation
 

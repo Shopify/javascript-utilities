@@ -2,16 +2,6 @@
 
 <!--## [Unreleased]-->
 
-## [2.5.0] - 2020-05-22
-
-### Added
-
-- [Dates] New helper functions: `isTomorrow`, and `isLeapYear`.
-
-### Fixed
-
-- [Dates] `getDateDiff` test to work for Leap Years.
-
 ## [2.4.1] - 2019-08-20
 
 ### Fixed
@@ -79,8 +69,7 @@ import {autobind} from '@shopify/javascript-utilities/decorators';
 
 ---
 
-[unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.5.0...HEAD
-[2.5.0]: https://github.com/shopify/javascript-utilities/compare/v2.3.0...v2.5.0
+[unreleased]: https://github.com/shopify/javascript-utilities/compare/v2.4.1...HEAD
 [2.4.1]: https://github.com/shopify/javascript-utilities/compare/v2.3.0...v2.4.1
 [2.4.0]: https://github.com/shopify/javascript-utilities/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/shopify/javascript-utilities/compare/v2.2.1...v2.3.0
